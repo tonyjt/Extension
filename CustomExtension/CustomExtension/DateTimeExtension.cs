@@ -34,6 +34,18 @@ namespace CustomExtension
         }
 
         /// <summary>
+        /// 格式 yyyy-MM-dd HH:mm
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static string ToStandardString(this DateTime? target,string defaultStrng = "--")
+        {
+            if (target.HasValue)
+                return target.Value.ToStandardString();
+            else
+                return defaultStrng;
+        }
+        /// <summary>
         /// 格式 yyyy-MM-dd
         /// </summary>
         /// <param name="target"></param>
@@ -44,6 +56,18 @@ namespace CustomExtension
         }
 
         /// <summary>
+        ///
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static string ToStandardDateString(this DateTime? target, string defaultStrng = "--")
+        {
+            if (target.HasValue)
+                return target.Value.ToStandardDateString();
+            else
+                return defaultStrng;
+        }
+        /// <summary>
         /// 格式 HHmm
         /// </summary>
         /// <param name="target"></param>
@@ -53,6 +77,18 @@ namespace CustomExtension
             return target.ToString("HHmm");
         }
 
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static string ToStandardTimeString(this DateTime? target, string defaultStrng = "--")
+        {
+            if (target.HasValue)
+                return target.Value.ToStandardTimeString();
+            else
+                return defaultStrng;
+        }
         /// <summary>
         /// 格式 yyMMdd
         /// </summary>
