@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomExtension", "CustomExtension\CustomExtension.csproj", "{BF1B0AB5-8011-458C-8FAB-79FC18C30143}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCExtension", "MVCExtension\MVCExtension.csproj", "{0B857AF4-CA07-4369-BF88-4B7B16505EDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{BF1B0AB5-8011-458C-8FAB-79FC18C30143}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF1B0AB5-8011-458C-8FAB-79FC18C30143}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF1B0AB5-8011-458C-8FAB-79FC18C30143}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B857AF4-CA07-4369-BF88-4B7B16505EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B857AF4-CA07-4369-BF88-4B7B16505EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B857AF4-CA07-4369-BF88-4B7B16505EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B857AF4-CA07-4369-BF88-4B7B16505EDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
