@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +16,7 @@ namespace CustomExtension
             return (int)Enum.Parse(source.GetType(), source.ToString());
         }
 
-        public static int GetByteEnumValue(this Enum source)
+        public static byte GetByteEnumValue(this Enum source)
         {
             return (byte)Enum.Parse(source.GetType(), source.ToString());
         }
@@ -31,30 +33,13 @@ namespace CustomExtension
 
         public static string GetEnumDescription(this Enum source)
         {
-            Type enumType = source.GetType();
-            if (!enumType.IsEnum)
-            {
+            FieldInfo field = source.GetType().GetField(source.ToString());
 
-            }
+            DisplayAttribute attrs = (DisplayAttribute)field.
+                          GetCustomAttributes(typeof(DisplayAttribute), false).First();
 
-            var name = Enum.GetName(enumType, Convert.ToInt32(source));
-            if (name == null)
-                return string.Empty;
-
-            object[] objs = enumType.GetField(name).GetCustomAttributes(typeof(DescriptionAttribute), false);
-
-            if (objs == null || objs.Length == 0)
-            {
-                return string.Empty;
-            }
-            else
-            {
-                DescriptionAttribute attr = objs[0] as DescriptionAttribute;
-                return attr.Description;
-            }
+            return attrs.GetName();
         }
-
-
 
         public static Boolean IsDefinedAttribute<T>(this Enum source) where T : Attribute
         {
@@ -69,5 +54,6 @@ namespace CustomExtension
             return objs.Length > 0;
         }
 
+        
     }
 }

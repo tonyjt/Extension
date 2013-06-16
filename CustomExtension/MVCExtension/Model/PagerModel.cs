@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MVCExtension
 {
-    public abstract class PagerModel
+    public class PagerModel : IPagerModel
     {
         private int _pageIndex = 1;
 
@@ -93,12 +93,38 @@ namespace MVCExtension
             return result;
         }
 
-        public abstract NameValueCollection GetRequestParameters { get; }
+        //public abstract NameValueCollection GetRequestParameters { get; }
 
         /// <summary>
         /// 用于详情返回数据
         /// </summary>
         public string QueryUrl { get; set; }
+
+        public NameValueCollection GetRequestParameters()
+        {
+            return null;
+        }
+
+        public int PageStart
+        {
+            get
+            {
+                return pageSize * (PageIndex - 1) + 1;
+            }
+        }
+
+        public int PageEnd
+        {
+            get
+            {
+                return PageIndex < TotalPageCount ? pageSize * PageIndex : TotalRecordCount;
+            }
+        }
     }
 
+
+    public interface IPagerModel
+    {
+        NameValueCollection GetRequestParameters();
+    }
 }

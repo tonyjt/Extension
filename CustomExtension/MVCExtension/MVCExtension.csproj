@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\PagerHelper.cs" />
     <Compile Include="Model\PagerModel.cs" />
     <Compile Include="MVCHtmlExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

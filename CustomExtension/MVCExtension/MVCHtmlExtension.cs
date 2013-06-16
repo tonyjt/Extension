@@ -228,7 +228,7 @@ namespace MVCExtension
         /// <param name="rootUrl"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static MvcHtmlString Pager<TModel>(this HtmlHelper<TModel> htmlHelper, string rootUrl, NameValueCollection parameters) where TModel : PagerModel
+        public static MvcHtmlString Pager(this HtmlHelper htmlHelper, string rootUrl, NameValueCollection parameters) 
         {
             StringBuilder parameterStr = new StringBuilder("");
             foreach (var p in parameters.AllKeys)
@@ -239,7 +239,7 @@ namespace MVCExtension
             }
             string requestUrl = string.Format("{0}?{1}", rootUrl, parameterStr.ToString());
             string pageRedirectUrlFormat = requestUrl + "&pageIndex={0}";
-            return WrapPagerGenerate<TModel>(htmlHelper, parameters, pageRedirectUrlFormat);
+            return WrapPagerGenerate(htmlHelper, parameters, pageRedirectUrlFormat);
         }
 
 
@@ -251,9 +251,9 @@ namespace MVCExtension
         /// <param name="jsMethod"></param>
         /// <param name="parameters"></param>
         /// <returns></returns>
-        public static MvcHtmlString PagerJSLoad<TModel>(this HtmlHelper<TModel> htmlHelper, string jsMethod, NameValueCollection parameters) where TModel : PagerModel
+        public static MvcHtmlString PagerJSLoad(this HtmlHelper htmlHelper, string jsMethod, NameValueCollection parameters) 
         {
-            var model = htmlHelper.ViewData.Model;
+            PagerModel model = (PagerModel)htmlHelper.ViewData.Model;
             StringBuilder parameterStr = new StringBuilder("");
             for (int i = 0; i < parameters.Count; i++)
             {
@@ -263,17 +263,14 @@ namespace MVCExtension
             }
             string requestUrl = string.Format("javascript:{0}({1},{2});", jsMethod, parameterStr.ToString(), "{0}");
             string pageRedirectUrlFormat = requestUrl;// +"&pageIndex={0}";
-            return WrapPagerGenerate<TModel>(htmlHelper, parameters, pageRedirectUrlFormat);
+            return WrapPagerGenerate(htmlHelper, parameters, pageRedirectUrlFormat);
         }
 
 
-        #endregion
 
-        #region  PagerHelper
-
-        private static MvcHtmlString WrapPagerGenerate<TModel>(HtmlHelper<TModel> htmlHelper, NameValueCollection parameters, string pageRedirectUrlFormat) where TModel : PagerModel
+        private static MvcHtmlString WrapPagerGenerate(HtmlHelper htmlHelper, NameValueCollection parameters, string pageRedirectUrlFormat) 
         {
-            var model = htmlHelper.ViewData.Model;
+            PagerModel model = (PagerModel)htmlHelper.ViewData.Model;
 
             string pagePrevious, pageNext, pageLink;
             if (model.PageIndex > 1)
