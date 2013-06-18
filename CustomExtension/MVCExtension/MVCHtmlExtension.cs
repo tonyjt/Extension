@@ -276,20 +276,20 @@ namespace MVCExtension
             if (model.PageIndex > 1)
             {
                 string url = string.Format(pageRedirectUrlFormat, model.PageIndex - 1);
-                pagePrevious = string.Format("<li ><a href='{0}'>«</a></li>", url);
+                pagePrevious = string.Format("<li ><a href='{0}'><i class='icon-double-angle-left'></i></a></li>", url);
             }
             else
             {
-                pagePrevious = "<li class='disabled'><a href='javascript:void(0);'>«</a></li>";
+                pagePrevious = "<li class='disabled'><a href='javascript:void(0);'><i class='icon-double-angle-left'></i></a></li>";
             }
             if (model.PageIndex < model.TotalPageCount)
             {
                 string url = string.Format(pageRedirectUrlFormat, model.PageIndex + 1);
-                pageNext = string.Format("<li ><a href='{0}'>»</a></li>", url);
+                pageNext = string.Format("<li ><a href='{0}'><i class='icon-double-angle-right'></i></a></li>", url);
             }
             else
             {
-                pageNext = "<li class='disabled'><a href='javascript:void(0);'>»</a></li>";
+                pageNext = "<li class='disabled'><a href='javascript:void(0);'><i class='icon-double-angle-right'></i></a></li>";
             }
             //纯数字页码
             string pageText = GetPageLink(model.PageIndex, model.TotalPageCount);
