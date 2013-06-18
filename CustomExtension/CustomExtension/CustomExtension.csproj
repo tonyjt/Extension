@@ -48,6 +48,7 @@
     <Compile Include="DecimalExtension.cs" />
     <Compile Include="EnumExtension.cs" />
     <Compile Include="Helper\EnumHelper.cs" />
+    <Compile Include="Helper\ManagerHelper.cs" />
     <Compile Include="IEnumerableExtension.cs" />
     <Compile Include="ILogExtension.cs" />
     <Compile Include="IPAddressExtensions.cs" />
