@@ -67,12 +67,12 @@ namespace CustomExtension.Helper
             }
         }
 
-        public static bool UpdateModel<P>(P parameter, Func<P, bool> fun, log4net.ILog log)
+        public static bool ActionBool<P>(P parameter, Func<P, bool> fun, log4net.ILog log)
         {
             return GetModel<P, bool>(parameter, fun, log);
         }
 
-        public static bool CreateModel<P>(P key, Action<P> fun, log4net.ILog log)
+        public static bool ActionVoid<P>(P key, Action<P> fun, log4net.ILog log)
         {
             try
             {
